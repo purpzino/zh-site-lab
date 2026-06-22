@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.2">
+    <title>开云 · 站点索引</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f7f6f3;
+            color: #1f1f1f;
+            line-height: 1.6;
+        }
+
+        /* 深色头图 */
+        .hero {
+            background: #1b1b1e;
+            color: #dcdcdc;
+            padding: 4.5rem 1.5rem 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background: #f7f6f3;
+            border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+            transform: scaleY(0.5);
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 350;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            color: #eae6dd;
+        }
+
+        .hero .sub {
+            font-size: 1rem;
+            color: #b0aca2;
+            margin-top: 0.5rem;
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .container {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem 4rem;
+        }
+
+        /* 介绍段落 —— 带有自然链接 */
+        .intro-text {
+            font-size: 1.05rem;
+            max-width: 740px;
+            margin: 0 auto 3rem;
+            background: white;
+            padding: 2rem 2.2rem;
+            border-radius: 32px 12px 32px 12px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.02);
+            color: #262626;
+        }
+
+        .intro-text p {
+            margin-bottom: 1.25rem;
+        }
+
+        .intro-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .intro-text a {
+            color: #a54f2b;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: border 0.15s;
+        }
+
+        .intro-text a:hover {
+            border-bottom: 1px solid #a54f2b;
+        }
+
+        /* 卡片区域 */
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 340;
+            letter-spacing: 0.5px;
+            margin-bottom: 2rem;
+            border-left: 4px solid #a54f2b;
+            padding-left: 1rem;
+            color: #2b2b2b;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 28px 8px 28px 8px;
+            padding: 2rem 1.6rem 2rem 1.8rem;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.02), 0 2px 4px rgba(0,0,0,0.02);
+            transition: transform 0.2s ease, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.04);
+        }
+
+        .card h3 {
+            font-weight: 400;
+            font-size: 1.4rem;
+            margin-bottom: 0.75rem;
+            letter-spacing: 0.3px;
+            color: #1f1f1f;
+        }
+
+        .card h3 small {
+            font-size: 0.9rem;
+            font-weight: 300;
+            color: #8f8a7e;
+            margin-left: 6px;
+        }
+
+        .card p, .card li {
+            font-size: 0.98rem;
+            color: #3f3e3b;
+        }
+
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .card ul li {
+            padding: 0.3rem 0 0.3rem 1.4rem;
+            position: relative;
+        }
+
+        .card ul li::before {
+            content: '·';
+            position: absolute;
+            left: 0;
+            color: #a54f2b;
+            font-weight: bold;
+        }
+
+        /* 适合人群 + 提示 混合卡片 */
+        .mix-card {
+            background: white;
+            border-radius: 24px;
+            padding: 2rem 2rem 1.8rem;
+            margin-bottom: 3rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: space-between;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+        }
+
+        .mix-card .col {
+            flex: 1 1 200px;
+        }
+
+        .mix-card h4 {
+            font-size: 1.15rem;
+            font-weight: 400;
+            border-bottom: 1px solid #e5e2db;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            color: #3d3a33;
+        }
+
+        .mix-card p, .mix-card li {
+            font-size: 0.97rem;
+            color: #3b3a36;
+        }
+
+        .mix-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .mix-card ul li {
+            padding: 0.25rem 0;
+        }
+
+        .mix-card ul li::before {
+            content: '— ';
+            color: #a54f2b;
+        }
+
+        .faq-mini {
+            background: #f3f0eb;
+            padding: 1.8rem 2.2rem;
+            border-radius: 40px 12px 40px 12px;
+            margin: 2.5rem 0 1.5rem;
+        }
+
+        .faq-mini h4 {
+            font-weight: 380;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: #2d2a24;
+        }
+
+        .faq-mini details {
+            margin-bottom: 0.5rem;
+            font-size: 0.98rem;
+            color: #2f2d28;
+        }
+
+        .faq-mini summary {
+            cursor: pointer;
+            padding: 0.4rem 0;
+            font-weight: 420;
+        }
+
+        .faq-mini summary::marker {
+            color: #a54f2b;
+        }
+
+        .footer-note {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #7d786b;
+            border-top: 1px solid #e2ddd3;
+            padding-top: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .footer-note a {
+            color: #6d4f38;
+            text-decoration: underline 1px dotted;
+            text-underline-offset: 3px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 700px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .intro-text {
+                padding: 1.5rem;
+                border-radius: 20px 8px 20px 8px;
+            }
+
+            .mix-card {
+                flex-direction: column;
+                gap: 1.5rem;
+                padding: 1.6rem;
+            }
+
+            .faq-mini {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 460px) {
+            .hero {
+                padding: 3rem 1rem 2rem;
+            }
+            .container {
+                padding: 1.8rem 1rem 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <h1>开云</h1>
+        <p class="sub">再次寻路 · 不变的一角</p>
+    </header>
+
+    <main class="container">
+
+        <!-- 自然的介绍段落，链接嵌入句子 -->
+        <div class="intro-text">
+            <p>偶尔想起一个地方，不是因为推送，而是因为曾经随手收藏。浏览器书签栏里渐渐拥挤，但真正会反复打开的总是那几个。对我来说，<a href="https://zh-site-ky.com">开云</a>就属于这一类——不需要每天刷新，却值得放在顺手的位置。</p>
+            <p>有些站点像工具，用完即走；还有一些更像一个安静的角落，你记得它在哪里，也知道下次回来时，大概会看到什么。这种稳定感在信息过载的时候，反而很轻。</p>
+        </div>
+
+        <h2 class="section-title">用途卡片 · 从收藏角度</h2>
+        <div class="card-grid">
+            <div class="card">
+                <h3>回到习惯的起点 <small>revisit</small></h3>
+                <p>浏览器收藏夹像一块软木留言板，有些图钉很久没碰过，但你知道它们还在。把<a href="https://zh-site-ky.com" style="color:#a54f2b; text-decoration: underline 1px dotted; text-underline-offset:3px;">开云</a>放在常驻栏，不是因为它每天更新，而是因为当你想找一个不嘈杂的去处时，它就在那。</p>
+            </div>
+            <div class="card">
+                <h3>保留阅读质感 <small>read later</small></h3>
+                <p>大多数“稍后读”最后都变成了“永远不读”。但有些页面你会主动存档，甚至手动记下链接。那些值得反复品读的内容，往往不依赖推送，而是你自己筛选出来的。</p>
+            </div>
+        </div>
+
+        <!-- 混合卡片：适合人群 + 持续关注的角度 -->
+        <div class="mix-card">
+            <div class="col">
+                <h4>适合这样的人</h4>
+                <ul>
+                    <li>对碎片信息有些疲倦，希望保留一处低噪点空间</li>
+                    <li>习惯用书签而非算法喂养浏览轨迹</li>
+                    <li>不介意一两个星期才回到同一个页面看看</li>
+                    <li>更喜欢文字内容，排斥自动播放与弹窗</li>
+                </ul>
+            </div>
+            <div class="col">
+                <h4>持续关注的方式</h4>
+                <p>不需要关注或订阅。把链接放在常用设备上，偶尔用书签点开，就像翻一本旧杂志。你记得它的调性，所以不必每天检查是否有红点。真正的收藏是无意识的——下次想起时，自然就会输那个短链接。</p>
+            </div>
+        </div>
+
+        <!-- FAQ 摘要（非典型，简洁） -->
+        <div class="faq-mini">
+            <h4>一点常见想法</h4>
+            <details>
+                <summary>为什么不是更知名的平台？</summary>
+                <p>知名与否不重要，重要的是你再次输入的那个地址。重复打开一个页面就是一种微小的习惯。开云更像是私人路标。</p>
+            </details>
+            <details>
+                <summary>需要注册或登录吗？</summary>
+                <p>大部分内容直接可读，不需要账户。保持简单也是收藏的理由之一。</p>
+            </details>
+            <details>
+                <summary>会不会突然找不到？</summary>
+                <p>域名稳定，没有花哨的重定向。当然，任何网站都可能变化，但至少现在它还是一个安静的存在。建议书签+偶尔回访。</p>
+            </details>
+        </div>
+
+        <!-- 一个自然嵌入的段落再次出现链接 -->
+        <div style="background: #fcfaf7; padding: 1.5rem 2rem; border-radius: 40px 8px 40px 8px; margin: 2rem 0; font-size: 1rem; color: #36352f;">
+            <p style="font-style: italic; margin-bottom: 0.5rem;">“收藏夹里有一半的链接，我甚至不记得当初为什么存。但<a href="https://zh-site-ky.com">开云</a>是少数几次回访后依然没有删除的页面之一。不是因为内容多稀缺，而是它的气质融入了我浏览的节奏。” <span style="display: block; text-align: right; margin-top: 0.5rem; color: #6d675b;">—— 一位不知名的再次访问者</span></p>
+        </div>
+
+        <div class="footer-note">
+            <p>· 如果你也曾经来过，或许书签就是最好的重逢 · <br>
+            <span style="font-size:0.9rem; display: inline-block; margin-top: 0.4rem;">再次访问 <a href="https://zh-site-ky.com">开云</a> · 收藏会自己说话</span></p>
+        </div>
+
+    </main>
+
+</body>
+</html>
